@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
-  Archive,
   ChevronLeft,
   ChevronRight,
   Loader2,
@@ -9,6 +8,7 @@ import {
   RefreshCw,
   FileJson,
 } from "lucide-react";
+import { AppIcon } from "@/components/AppIcon";
 import { commands } from "@/lib/tauri";
 import { useConnectionStore } from "@/stores/connectionStore";
 import { useUIStore } from "@/stores/uiStore";
@@ -91,14 +91,12 @@ export function Sidebar() {
       <div className="flex h-14 items-center justify-between border-b px-3">
         {!sidebarCollapsed ? (
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
-              <Archive className="h-4 w-4 text-primary" />
-            </div>
+            <AppIcon size="md" />
             <span className="font-semibold tracking-tight">Baul</span>
           </div>
         ) : (
-          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mx-auto">
-            <Archive className="h-4 w-4 text-primary" />
+          <div className="mx-auto">
+            <AppIcon size="md" />
           </div>
         )}
         <Button variant="ghost" size="icon" className={cn(sidebarCollapsed && "hidden")} onClick={toggleSidebar}>
